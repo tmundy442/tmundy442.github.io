@@ -1,1 +1,193 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tom Mundy's Portfolio</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="css/githubio.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">Home</span>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About Me</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#projects">Projects</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact Info</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Tom Mundy</h1>
+                        <p class="intro-text">Github.io Portfolio</p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>About Me</h2>
+                <img src="img/Spock.jpg" width="200" height="125">
+                <p>I am a technology professional with experience in IT, electronics and broadcast media. I am an April 2017 graduate of the We Can Code It coding bootcamp, having studied LAVA, HTML, CSS, and SQL. I am looking for a position in a technology driven company with an emphasis in database design and information security.</p>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="content-section text-center">
+        <div class="projects-section">
+        <h2>Projects</h2>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-4">
+                  <p>JAVA</p>
+                  <a href="https://github.com/tmundy442/virtual-pet" class="btn btn-default btn-lg">
+                  View Java Project</a>   
+                </div>
+                <div class="col-lg-4">
+                  <p>HTML</p>
+                 <a href="https://github.com/tmundy442/tuscany-villa" class="btn btn-default btn-lg">
+                  View HTML Project</a>   
+                </div>
+                <div class="col-lg-4">
+                <p>PROJECT LIST</p>
+                
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+      <div id="info"></div>
+      <button class="btn btn-default btn-lg">View Other Projects</button>
+      <!--Get request to Github reposirories--> 
+      <script type="text/JavaScript">  
+        
+          var mydiv = $('#info');
+            $(document).ready( function() {
+                $("button").click( function() {
+                  $.getJSON("https://api.github.com/users/tmundy442", function(data) {
+                    console.log(data);
+                    $('<button>Test</button>').click(function () { alert('hi'); });
+                    $.getJSON(data.repos_url, function(repoData) {
+                      for(var i =0; i<repoData.length; i++) {
+                        mydiv.append('<div class="myclass">' + 'Name: '+ repoData[i].name + '</div>');
+                        mydiv.append('<div class="myclass">' + 'Updated: ' + repoData[i].updated_at + '</div>');
+                        mydiv.append('<div class="myclass">' + '<a href=' + repoData[i].html_url + ' class="btn btn-default btn-lg">View This Project</button>' + '</a>'); 
+                      }
+                    });
+                  });
+                });
+            });
+      </script>  
+                </div>
+              </div>  
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contact Me</h2>
+                <p>680 Walnut St<br>Nelsonville, Oh  45764</p>
+                <p><a href="mailto:tommundy@sbcglobal.net">tommundy@sbcglobal.net</a>
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://LinkedIn.com" class="btn btn-default btn-lg"><i class="fa fa-linkedin-square fa-fw"></i> <span class="network-name">LinkedIn</span></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/tmundy442" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Updated March 2017</p>
+            <p>  </p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+    <!-- Theme JavaScript -->
+    <script src="js/grayscale.min.js"></script>
+
+</body>
+
+</html>
